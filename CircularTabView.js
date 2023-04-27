@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from 'react';
 import { StyleSheet, Text, Dimensions, Animated } from 'react-native';
-import CircularTabView from './CircularTabView';
+import { tabColors } from './src/Constants';
 
 const { width } = Dimensions.get('window');
 
@@ -27,9 +27,9 @@ const CircularTabView = ({ tabs }) => {
 
     const handleScroll = (event) => {
         // const length = tabs.length;
-        const { contentOffset, layoutMeasurement, contentSize } = event.nativeEvent;
+        const { contentOffset, layoutMeasurement } = event.nativeEvent;
         const currentIndex = Math.round(contentOffset.x / layoutMeasurement.width);
-        console.log({ currentIndex })
+        // console.log({ currentIndex })
         setCurrentFocusedIndex(currentIndex);
     };
 
@@ -61,7 +61,7 @@ const CircularTabView = ({ tabs }) => {
     );
 };
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
     tab: {
       width: width,
       padding: 10,
